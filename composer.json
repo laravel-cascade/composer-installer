@@ -1,7 +1,7 @@
 {
     "name": "laravel-cascade/cascade-composer-installer",
     "type": "composer-plugin",
-    "description": "Composer Plugin built for Cascade System to help easily install Module, Themes and Plugins to their dedicated directories",
+    "description": "Composer Plugin built for Cascade System to help easily install Module, Themes and Plugins to their dedicated directories with changes tracking capabilities",
     "license": "MIT",
     "autoload": {
         "psr-4": {
