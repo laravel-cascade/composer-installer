@@ -4,6 +4,7 @@ namespace LaravelCascade\ComposerInstaller;
 
 use Composer\Package\PackageInterface;
 use Composer\Installer\LibraryInstaller;
+use InvalidArgumentException;
 use Joshbrw\LaravelModuleInstaller\Exceptions\LaravelModuleInstallerException;
 use LaravelCascade\ComposerInstaller\Exceptions\InstallerException;
 
@@ -29,7 +30,7 @@ class PackageManager extends LibraryInstaller
      */
     protected function getBaseInstallationPath()
     {
-        return $this->type;
+        throw new InvalidArgumentException($this->composer->getPackage()->getSourceType());
         if (!empty($this->type)) {
             return self::DEFAULT_ROOT;
         }
