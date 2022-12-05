@@ -34,9 +34,8 @@ class PackageManager extends LibraryInstaller
         }
 
         $extra = $this->composer->getPackage()->getExtra();
-
         if (!$extra || empty($extra['module-dir'])) {
-            $type = $this->composer->getPackage()->getType();
+            $type = $this->type;
             $path = self::DEFAULT_ROOT;
             switch($type)
             {
@@ -45,7 +44,7 @@ class PackageManager extends LibraryInstaller
             }
             return  $path;
         }
-
+        
         return $extra['module-dir'];
     }
 
