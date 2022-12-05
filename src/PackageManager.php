@@ -19,7 +19,7 @@ class PackageManager extends LibraryInstaller
      */
     public function getInstallPath(PackageInterface $package)
     {
-        return $this->getBaseInstallationPath() . '/' . $this->getModuleName($package);
+        return $this->getBaseInstallationPath($package) . '/' . $this->getModuleName($package);
     }
 
     /**
@@ -28,16 +28,15 @@ class PackageManager extends LibraryInstaller
      *
      * @return string
      */
-    protected function getBaseInstallationPath()
+    protected function getBaseInstallationPath(PackageInterface $package)
     {
-        throw new InvalidArgumentException($this->composer->getPackage()->getType());
-        if (!empty($this->type)) {
+        if (empty($package->getType())) {
             return self::DEFAULT_ROOT;
         }
 
-        $extra = $this->composer->getPackage()->getExtra();
+        $extra = $package->getExtra();
         if (!$extra || empty($extra['module-dir'])) {
-            $type = $this->type;
+            $type = $package->getType();
             $path = self::DEFAULT_ROOT;
             switch($type)
             {
