@@ -29,7 +29,7 @@ class PackageManager extends LibraryInstaller
      */
     protected function getBaseInstallationPath()
     {
-        if (!$this->composer || !$this->composer->getPackage()) {
+        if (!empty($this->type)) {
             return self::DEFAULT_ROOT;
         }
 
