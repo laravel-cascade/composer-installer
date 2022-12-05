@@ -30,7 +30,7 @@ class PackageManager extends LibraryInstaller
      */
     protected function getBaseInstallationPath()
     {
-        throw new InvalidArgumentException($this->composer->getPackage()->getSourceType());
+        throw new InvalidArgumentException($this->composer->getPackage()->getType());
         if (!empty($this->type)) {
             return self::DEFAULT_ROOT;
         }
