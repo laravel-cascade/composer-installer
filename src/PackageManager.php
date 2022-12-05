@@ -43,7 +43,7 @@ class PackageManager extends LibraryInstaller
                 case 'laravel-theme' : $path = self::DEFAULT_THEMES_ROOT; break;
                 case 'laravel-plugin' : $path = self::DEFAULT_PLUGINS_ROOT; break;
             }
-            return  self::DEFAULT_ROOT;
+            return  $path;
         }
 
         return $extra['module-dir'];
